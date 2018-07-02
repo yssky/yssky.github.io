@@ -1,0 +1,23 @@
+文件夹 PATH 列表
+卷序列号为 3AAA-D50F
+C:.
+    1-SCVMM2016评估版已过期.PNG
+    10-SCVMM2016重新安装2-选择数据库.png
+    11-SCVMM2016重新安装2-服务帐户.png
+    12-SCVMM2016重新安装2-端口默认.png
+    13-SCVMM2016重新安装6-库共享.png
+    14-SCVMM2016重新安装7-摘要.png
+    15-SCVMM2016重新安装7-完成.png
+    2-SCVMM2016评估版已过期无法使用powershell激活Key.PNG
+    3-SCVMM2016卸载重新安装1.PNG
+    4-SCVMM2016卸载重新安装2.PNG
+    5-SCVMM2016卸载重新安装3-保留数值.png
+    6-SCVMM2016卸载重新安装4-卸载确认.png
+    7-SCVMM2016卸载重新安装5-卸载完成.png
+    8-SCVMM2016重新安装1.png
+    9-SCVMM2016重新安装2-输入产品密钥.png
+    批量获取文件名.bat
+    文件树.txt
+    
+没有子文件夹 
+
