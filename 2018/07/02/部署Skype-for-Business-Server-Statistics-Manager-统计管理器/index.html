@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。 1.安装Redis-x64-3.0.501，下载地址：https://github.com/MSOpenTech/redis/releases2.申请自定义证">
+  <meta name="description" content="Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。">
 <meta name="keywords" content="Skype for Business Server Statistics Manager">
 <meta property="og:type" content="article">
 <meta property="og:title" content="部署Skype for Business Server Statistics Manager(统计管理器)">
 <meta property="og:url" content="http://yoursite.com/2018/07/02/部署Skype-for-Business-Server-Statistics-Manager-统计管理器/index.html">
 <meta property="og:site_name" content="强生的博客">
-<meta property="og:description" content="Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。 1.安装Redis-x64-3.0.501，下载地址：https://github.com/MSOpenTech/redis/releases2.申请自定义证">
+<meta property="og:description" content="Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-02T06:41:56.371Z">
+<meta property="og:updated_time" content="2018-07-02T09:15:02.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="部署Skype for Business Server Statistics Manager(统计管理器)">
-<meta name="twitter:description" content="Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。 1.安装Redis-x64-3.0.501，下载地址：https://github.com/MSOpenTech/redis/releases2.申请自定义证">
+<meta name="twitter:description" content="Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。">
 
 
 
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 11:47:02 / 修改时间：14:41:56" itemprop="dateCreated datePublished" datetime="2018-07-02T11:47:02+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 11:47:02 / 修改时间：17:15:02" itemprop="dateCreated datePublished" datetime="2018-07-02T11:47:02+08:00">2018-07-02</time>
             
 
             
@@ -404,6 +404,7 @@
 
       
         <p>Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。</p>
+<a id="more"></a>
 <p>1.安装Redis-x64-3.0.501，下载地址：<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/releases</a><br>2.申请自定义证书<br>3.安装统计管理器侦听器服务 StatsManPerfAgentListener.msi ，下载地址：<a href="https://aka.ms/StatsManDownload" target="_blank" rel="noopener">https://aka.ms/StatsManDownload</a><br>4.安装统计管理器网站 StatsManWebSite.msi<br>5.在Skype for Business前端、边缘、分支等服务器上安装统计管理器代理 StatsManPerfAgent.msi<br>6.导入Skype for Business服务器拓扑<br>导出：<code>Get-CsPool | Export-Clixml -Path mypoolinfo.xml</code><br>在统计管理器服务器上导入：<br><code>cd ‘C:\Program Files\Skype for Business Server StatsMan Listener’</code></p>
 <p><code>.\Update-StatsManServerInfo.ps1 -CsPoolFile &lt;path to mypoolinfo.xml&gt;</code></p>
 

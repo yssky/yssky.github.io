@@ -108,19 +108,19 @@
 
 
 
-  <meta name="description" content="故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误 分析过程：本地域用户删除后，经过Azure AD Connect同步工具执行同步，Office 365云端用户无法删除，无法删除用户有1000多。 解决方法：本地域原来是全部同步，后来改成仅同步某些OU，Azure AD防止意外删除有限制（500），造成云端无法删除。 1.临时执行如下命令关">
+  <meta name="description" content="故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误">
 <meta name="keywords" content="Azure AD Connect">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Azure AD Connect同步报错：unexpected error 意外错误">
 <meta property="og:url" content="http://yoursite.com/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/index.html">
 <meta property="og:site_name" content="强生的博客">
-<meta property="og:description" content="故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误 分析过程：本地域用户删除后，经过Azure AD Connect同步工具执行同步，Office 365云端用户无法删除，无法删除用户有1000多。 解决方法：本地域原来是全部同步，后来改成仅同步某些OU，Azure AD防止意外删除有限制（500），造成云端无法删除。 1.临时执行如下命令关">
+<meta property="og:description" content="故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/AADConnect-未知预期的错误-01.jpg">
-<meta property="og:updated_time" content="2018-07-02T05:40:06.771Z">
+<meta property="og:updated_time" content="2018-07-02T09:12:25.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Azure AD Connect同步报错：unexpected error 意外错误">
-<meta name="twitter:description" content="故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误 分析过程：本地域用户删除后，经过Azure AD Connect同步工具执行同步，Office 365云端用户无法删除，无法删除用户有1000多。 解决方法：本地域原来是全部同步，后来改成仅同步某些OU，Azure AD防止意外删除有限制（500），造成云端无法删除。 1.临时执行如下命令关">
+<meta name="twitter:description" content="故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误">
 <meta name="twitter:image" content="http://yoursite.com/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/AADConnect-未知预期的错误-01.jpg">
 
 
@@ -349,7 +349,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 13:36:20 / 修改时间：13:40:06" itemprop="dateCreated datePublished" datetime="2018-07-02T13:36:20+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 13:36:20 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T13:36:20+08:00">2018-07-02</time>
             
 
             
@@ -406,6 +406,7 @@
 
       
         <p>故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误<br><img src="/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/AADConnect-未知预期的错误-01.jpg"></p>
+<a id="more"></a>
 <p>分析过程：本地域用户删除后，经过Azure AD Connect同步工具执行同步，Office 365云端用户无法删除，无法删除用户有1000多。</p>
 <p>解决方法：本地域原来是全部同步，后来改成仅同步某些OU，Azure AD防止意外删除有限制（500），造成云端无法删除。</p>
 <p>1.临时执行如下命令关闭防止意外删除限制：<br><code>Disable-ADSyncExportDeletionThreshold</code><br>2.然后再执行同步命令执行同步，云端用户已经删除：<br><code>Start-ADSyncSyncCycle -PolicyType Delta</code><br>3.同步完成后，恢复防止意外删除限制，自行设置数字：<br><code>Enable-ADSyncExportDeletionThreshold</code></p>

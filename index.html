@@ -510,7 +510,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 14:16:04 / 修改时间：14:41:56" itemprop="dateCreated datePublished" datetime="2018-07-02T14:16:04+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 14:16:04 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T14:16:04+08:00">2018-07-02</time>
             
 
             
@@ -567,17 +567,14 @@
 
       
         
-          
-            <p>Skype for Business Server 2015后端SQL数据库部署Always On后，SQL数据库可用性组和可用性数据库已经准备就绪。但是当故障转移至辅助副本时，问题就出现了，前端频繁报错：无法连接至后端数据库，用户Skype for Business客户端报“受限的连接”，无法获取联系人列表。</p>
-<p>解决方法，微软宣讲的Lync升级Skype for Business PPT中有讲到此已知问题，如下图</p>
-
-<p>具体的解决步骤：</p>
-<p>1.打开群集管理器手动故障转移，切换至副本节点；或打开SQL控制台，故障转移至辅助副本；</p>
-<p>2.以管理员身份打开Skype for Business Server 命令行管理程序，运行如下命令更新辅助副本登录用户信息</p>
-<p>其中xxxsql.xx.cn填写SQL Always On侦听器地址</p>
-<p><code>Install-CsDatabase -Update -ConfiguredDatabases -SqlServerFqdn xxxsql.xx.cn -Verbose</code></p>
-
-          
+          <p>Skype for Business Server 2015后端SQL数据库部署Always On后，SQL数据库可用性组和可用性数据库已经准备就绪。但是当故障转移至辅助副本时，问题就出现了，前端频繁报错：无法连接至后端数据库，用户Skype for Business客户端报“受限的连接”，无法获取联系人列表。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/Skype-for-Business-Server-部署SQL-always-on-已知问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -675,7 +672,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 14:06:24 / 修改时间：14:41:56" itemprop="dateCreated datePublished" datetime="2018-07-02T14:06:24+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 14:06:24 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T14:06:24+08:00">2018-07-02</time>
             
 
             
@@ -732,29 +729,14 @@
 
       
         
-          
-            <p>Skype for Business Server 2015部署前习惯把Windows Server操作系统补丁打到最新，最近在部署完毕后，Lync Server 事件中频繁报错事件ID：41026（LS Data MCU）和正常的状态信息41205，具体报错信息如下图：</p>
-
-
-<p>此故障是已知问题，因为安装.NET Framework 4.5.2 或最新版本中会在增强型密钥使用（EKU）上向证书添加额外的检查，由于颁发证书的模板中没有添加客户端验证造成的。</p>
-<p>具体的解决方法有两种，详见如下链接：</p>
-<p><a href="https://support.microsoft.com/en-us/help/4023993/ls-data-mcu-events-41025-and-41026-are-constantly-generated-after-you-" target="_blank" rel="noopener">https://support.microsoft.com/en-us/help/4023993/ls-data-mcu-events-41025-and-41026-are-constantly-generated-after-you-</a></p>
-<p><a href="https://blogs.technet.microsoft.com/uclobby/2017/05/24/lyncsfb-server-event-41026-ls-data-mcu-after-may-2017-net-framework-update/" target="_blank" rel="noopener">https://blogs.technet.microsoft.com/uclobby/2017/05/24/lyncsfb-server-event-41026-ls-data-mcu-after-may-2017-net-framework-update/</a></p>
-<p>此次我使用第二种方法，关闭EKU证书检查，在注册中添加键值关闭EKU检查。</p>
-<p>具体解决步骤如下</p>
-<p>1.导航到如下图注册表位置，如果不存在项：System.Net.ServicePointManager.RequireCertificateEKUs，需要手动创建，过程如下图</p>
-<img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/3-注册表新建项.PNG">
-
-<p>2.下载自动判断Lync/Sfb Server版本Powershell脚本<a href="https://gallery.technet.microsoft.com/LyncSfB-Server-Disable-EKU-dab6cb88，自动创建键值关闭EKU检查，当然也可以手动创建，此次使用脚本的方式（适用于Sfb" target="_blank" rel="noopener">https://gallery.technet.microsoft.com/LyncSfB-Server-Disable-EKU-dab6cb88，自动创建键值关闭EKU检查，当然也可以手动创建，此次使用脚本的方式（适用于Sfb</a> Server安装位置为默认位置），以管理员命令打开，过程如下图</p>
-<img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/5-使用Powershell判断版本新建注册表值.PNG">
-<img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/6-使用Powershell判断EKUs.PNG">
-<p>3.核实注册表键值是否创建</p>
-<img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/7-复核新建注册表键值.PNG">
-<p>4.重新启动Skype for Business Server Web会议服务</p>
-
-<p>至此，再通过事件查看器，查看已经没有此报错信息，前端与边缘的Web会议正常建立连接。</p>
-
-          
+          <p>Skype for Business Server 2015部署前习惯把Windows Server操作系统补丁打到最新，最近在部署完毕后，Lync Server 事件中频繁报错事件ID：41026（LS Data MCU）和正常的状态信息41205，具体报错信息如下图：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -852,7 +834,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 14:01:51 / 修改时间：14:41:56" itemprop="dateCreated datePublished" datetime="2018-07-02T14:01:51+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 14:01:51 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T14:01:51+08:00">2018-07-02</time>
             
 
             
@@ -909,19 +891,15 @@
 
       
         
-          
-            <p>部署Skype for Business Server 2015并启用企业语音，企业内部部署奥科M1000语音网关，一切看起来都工作正常，但SfB前端频繁报事件ID 25073 Trunk不支持柔和噪音。</p>
+          <p>部署Skype for Business Server 2015并启用企业语音，企业内部部署奥科M1000语音网关，一切看起来都工作正常，但SfB前端频繁报事件ID 25073 Trunk不支持柔和噪音。</p>
 <img src="/2018/07/02/Skype-for-Business-频繁报LS-25073-Trunk不支持柔和噪音/1-柔和噪音1.jpg">
-<p>请按照如下频繁配置AudioCode M1000语音网关相关配置，以支持柔和噪音。</p>
-<p>1.AudioCode M1000配置如下项目为Enable</p>
-<p><code>Enable RFC 3389 CN Payload Type :Enable</code></p>
-<p><code>Comfort Noise Generation Negotiation:Enable</code></p>
-<img src="/2018/07/02/Skype-for-Business-频繁报LS-25073-Trunk不支持柔和噪音/2-柔和噪音奥科网关1.jpg">
-<p>2.配置如下编解码率Silence Suppression :Enable</p>
-<img src="/2018/07/02/Skype-for-Business-频繁报LS-25073-Trunk不支持柔和噪音/3-柔和噪音奥科网关2.jpg">
-<p>如上配置AudioCode M1000支持柔和噪音，Skype for Business前端服务器不再报柔和噪音错误。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/Skype-for-Business-频繁报LS-25073-Trunk不支持柔和噪音/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1181,7 +1159,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 13:55:46 / 修改时间：13:58:42" itemprop="dateCreated datePublished" datetime="2018-07-02T13:55:46+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 13:55:46 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T13:55:46+08:00">2018-07-02</time>
             
 
             
@@ -1238,18 +1216,15 @@
 
       
         
-          
-            <p>System Center Virtual Machine Manager 2016作业中出现警告50079，具体报错信息如下图：</p>
+          <p>System Center Virtual Machine Manager 2016作业中出现警告50079，具体报错信息如下图：</p>
 <img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/1-警告50079未配置高可用虚拟交换机.jpg">
-<p>查看群集主机虚拟机交换配置，发现未关联逻辑网络，如下图：</p>
-<img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/2-警告50079未配置高可用虚拟交换机--未关联逻辑网络.jpg">
-<p>解决方法：在群集主机上右键属性–硬件–网络找到对应的虚拟交换机并关联对应的逻辑网络即可，如下图：</p>
-<img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/3-虚拟机交换机关联逻辑网络.jpg">
-<p>虚拟交换机关联相对应的逻辑网络后，如下图</p>
-<img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/4-虚拟机交换机关联逻辑网络-虚拟交换机.jpg">
-<p>虚拟交换机关联相对应的逻辑网络后，等待群集刷新，作业中此故障消失。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1347,7 +1322,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 13:53:31 / 修改时间：13:55:18" itemprop="dateCreated datePublished" datetime="2018-07-02T13:53:31+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 13:53:31 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T13:53:31+08:00">2018-07-02</time>
             
 
             
@@ -1404,15 +1379,15 @@
 
       
         
-          
-            <p>System Center Virtual Machine Manager 2016内部系统垃圾回收作业错误2601–无法连接到VMM数据库，请确保SQL Server 正在运行并且配置正确，错误如下图：</p>
+          <p>System Center Virtual Machine Manager 2016内部系统垃圾回收作业错误2601–无法连接到VMM数据库，请确保SQL Server 正在运行并且配置正确，错误如下图：</p>
 <img src="/2018/07/02/SCVMM内部系统垃圾回收作业错误2601-无法连接到VMM数据库/内部系统垃圾回收错误2601.jpg">
-<p>此故障是微软已知问题并已经发布UR3补丁，此故障是作为垃圾收集器刷新的一部分，不影响SCVMM正常使用。</p>
-<p>Update Rollup 3 for System Center 2016 Virtual Machine Manager<br>链接：<a href="https://support.microsoft.com/en-hk/help/4014528/update-rollup-3-for-system-center-2016-virtual-machine-manager" target="_blank" rel="noopener">https://support.microsoft.com/en-hk/help/4014528/update-rollup-3-for-system-center-2016-virtual-machine-manager</a></p>
-<p>UR3补丁发布修复问题列表有此项说明：</p>
-<p>Internal Garbage Collection Refresher fails with the exception “Unable to connect to database.”</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/SCVMM内部系统垃圾回收作业错误2601-无法连接到VMM数据库/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1510,7 +1485,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 13:45:53 / 修改时间：14:41:56" itemprop="dateCreated datePublished" datetime="2018-07-02T13:45:53+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 13:45:53 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T13:45:53+08:00">2018-07-02</time>
             
 
             
@@ -1567,8 +1542,7 @@
 
       
         
-          
-            <p>最近做Lync 2010升级Skype for Business 项目中，遇到一则故障，故障现象：某一用户Lync电话无法呼出呼入，呼出直接断开呼叫，呼入也是直接断开呼叫，如果通过Lync客户端呼入提示如下图错误：</p>
+          <p>最近做Lync 2010升级Skype for Business 项目中，遇到一则故障，故障现象：某一用户Lync电话无法呼出呼入，呼出直接断开呼叫，呼入也是直接断开呼叫，如果通过Lync客户端呼入提示如下图错误：</p>
 <blockquote>
 <p>中文描述：无法联系 xxx。有多个联系人具有相同电话号码。请重试呼叫。如果仍无法完成呼叫，请与您的支持团队联系以了解此信息。</p>
 </blockquote>
@@ -1577,21 +1551,13 @@
 <p>英文描述：Cannot contact xxx. There is more than one contact with the same phone number.Try calling again.If you still cannot complete the call,contact your support team with this information.</p>
 </blockquote>
 <img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/2-有多个联系人具有相同电话号码-英文.JPG">
-<p>查询后发现没有重复用户或其它用途占用此号码，进一步分析，做用户升级项目，迁移用户前此用户电话号码正常，迁移后不正常；再进一步了解，此号码曾经分配给其它人，但是那个用户已经离职，才把此电话号码分配给此用户使用，迁移前一段时间都使用正常。</p>
-<p>那问题就出现迁移上，是不是迁移数据没有同步造成数据库中存在两条同样电话号码的数据，导致呼叫断开呢？</p>
-<p>以下是解决过程：</p>
-<p>1.使用SQL管理工具连接此用户所在的SfB前端服务器rtclocal数据库实例，通过SQL语句查询，查询有两条相同电话号码的用户：<br><code>SELECT * From [rtc].[dbo].[ResourcePhone] where PhoneNum like ‘%75157%’</code></p>
-<img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/3-rtc-查询-1.jpg">
-<p>2.通过ResourceID查找对应的用户，语句如下<br><code>SELECT * FROM [rtc].[dbo].[Resource] where ResourceId = ‘3161’</code></p>
-<img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/4-rtc-查询-2.jpg">
-<p>3.找到非在用用户，使用如下命令删除<br><code>execute dbo.RtcDeleteResource ‘juaxx@xx.cn’</code></p>
-<img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/5-rtc-执行删除.jpg">
-<p>通过以上方法解决后，要确保所有前端数据都是唯一的，如果不唯一，请按照1、2、3步骤执行并删除非正常用户数据。此时，再查看用户电话已经可以正常打进打出。</p>
-<p>参考文档如下。</p>
-<p><a href="http://lynclead.com/?p=312" target="_blank" rel="noopener">http://lynclead.com/?p=312</a></p>
-<p><a href="http://lynclead.com/?p=324" target="_blank" rel="noopener">http://lynclead.com/?p=324</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1689,7 +1655,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 13:40:36 / 修改时间：13:45:07" itemprop="dateCreated datePublished" datetime="2018-07-02T13:40:36+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 13:40:36 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T13:40:36+08:00">2018-07-02</time>
             
 
             
@@ -1746,18 +1712,16 @@
 
       
         
-          
-            <p>Office 365混合部署，本地安装Azure AD Connect 与Azure AD同步本地用户信息，以便统一标识访问Office 365。</p>
+          <p>Office 365混合部署，本地安装Azure AD Connect 与Azure AD同步本地用户信息，以便统一标识访问Office 365。</p>
 <p>故障描述：同步工具同步过程中，报错信息如下：permission-issue 访问特权不够，不能执行该操作。<br><img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/AADConnect--访问特权不够-01.jpg"></p>
 <img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/AADConnect--访问特权不够-02.jpg">
-<p>分析过程：查看这些用户，都曾经是Domain Admin用户或其它特权权限，后期回收了权限。</p>
-<p>解决方法：这些用户–启用对Domain Admin的权限继承</p>
-<img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/3-启用继承-01.jpg">
-<img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/3-启用继承-02.jpg">
-<img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/3-启用继承-03.jpg">
-<p>也可以参考：<a href="http://mstechtalk.com/azure-ad-sync-permissions-error/" target="_blank" rel="noopener">http://mstechtalk.com/azure-ad-sync-permissions-error/</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1855,7 +1819,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 13:36:20 / 修改时间：13:40:06" itemprop="dateCreated datePublished" datetime="2018-07-02T13:36:20+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 13:36:20 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T13:36:20+08:00">2018-07-02</time>
             
 
             
@@ -1912,14 +1876,14 @@
 
       
         
-          
-            <p>故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误<br><img src="/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/AADConnect-未知预期的错误-01.jpg"></p>
-<p>分析过程：本地域用户删除后，经过Azure AD Connect同步工具执行同步，Office 365云端用户无法删除，无法删除用户有1000多。</p>
-<p>解决方法：本地域原来是全部同步，后来改成仅同步某些OU，Azure AD防止意外删除有限制（500），造成云端无法删除。</p>
-<p>1.临时执行如下命令关闭防止意外删除限制：<br><code>Disable-ADSyncExportDeletionThreshold</code><br>2.然后再执行同步命令执行同步，云端用户已经删除：<br><code>Start-ADSyncSyncCycle -PolicyType Delta</code><br>3.同步完成后，恢复防止意外删除限制，自行设置数字：<br><code>Enable-ADSyncExportDeletionThreshold</code></p>
-<p>参考：<a href="https://docs.microsoft.com/zh-cn/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes</a></p>
-
-          
+          <p>故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误<br><img src="/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/AADConnect-未知预期的错误-01.jpg"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

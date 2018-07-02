@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="#故障描述：wsus(Windows Server Update Services)控制台经常无法打开，报错提示如下：  WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。   请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。   System.Ne">
+  <meta name="description" content="#故障描述：wsus(Windows Server Update Services)控制台经常无法打开，报错提示如下：  WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。   请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。System.Net.W">
 <meta name="keywords" content="WSUS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wsus(Windows Server Update Services)控制台报错:WsusPool应用程序停止">
 <meta property="og:url" content="http://yoursite.com/2018/07/02/wsus-Windows-Server-Update-Services-控制台报错-WsusPool应用程序停止/index.html">
 <meta property="og:site_name" content="强生的博客">
-<meta property="og:description" content="#故障描述：wsus(Windows Server Update Services)控制台经常无法打开，报错提示如下：  WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。   请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。   System.Ne">
+<meta property="og:description" content="#故障描述：wsus(Windows Server Update Services)控制台经常无法打开，报错提示如下：  WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。   请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。System.Net.W">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-02T03:58:15.490Z">
+<meta property="og:updated_time" content="2018-07-02T09:13:39.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wsus(Windows Server Update Services)控制台报错:WsusPool应用程序停止">
-<meta name="twitter:description" content="#故障描述：wsus(Windows Server Update Services)控制台经常无法打开，报错提示如下：  WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。   请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。   System.Ne">
+<meta name="twitter:description" content="#故障描述：wsus(Windows Server Update Services)控制台经常无法打开，报错提示如下：  WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。   请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。System.Net.W">
 
 
 
@@ -347,7 +347,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 11:49:56 / 修改时间：11:58:15" itemprop="dateCreated datePublished" datetime="2018-07-02T11:49:56+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 11:49:56 / 修改时间：17:13:39" itemprop="dateCreated datePublished" datetime="2018-07-02T11:49:56+08:00">2018-07-02</time>
             
 
             
@@ -408,11 +408,9 @@
 <p>WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。</p>
 </blockquote>
 <blockquote>
-<p>请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。</p>
+<p>请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。<br>System.Net.WebException — 请求因 HTTP 状态 503 失败: Service Unavailable。</p>
 </blockquote>
-<blockquote>
-<p>System.Net.WebException — 请求因 HTTP 状态 503 失败: Service Unavailable。</p>
-</blockquote>
+<a id="more"></a>
 <p>以及如下报错：</p>
 <blockquote>
 <p>无法访问 WSUS 内容目录。<br>System.Net.WebException: 远程服务器返回错误: (503) 服务器不可用。<br>在 System.Net.HttpWebRequest.GetResponse()<br>在 Microsoft.UpdateServices.Internal.HealthMonitoring.HmtWebServices.CheckContentDirWebAccess(EventLoggingType type, HealthEventLogger logger)</p>

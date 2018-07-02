@@ -121,7 +121,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/3-rtc-查询-1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/4-rtc-查询-2.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/5-rtc-执行删除.jpg">
-<meta property="og:updated_time" content="2018-07-02T06:41:56.314Z">
+<meta property="og:updated_time" content="2018-07-02T09:12:25.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Skype for Business电话无法呼出呼入--有多个联系人具有相同电话号码">
 <meta name="twitter:description" content="最近做Lync 2010升级Skype for Business 项目中，遇到一则故障，故障现象：某一用户Lync电话无法呼出呼入，呼出直接断开呼叫，呼入也是直接断开呼叫，如果通过Lync客户端呼入提示如下图错误：  中文描述：无法联系 xxx。有多个联系人具有相同电话号码。请重试呼叫。如果仍无法完成呼叫，请与您的支持团队联系以了解此信息。    英文描述：Cannot contact xxx.">
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="创建时间：2018-07-02 13:45:53 / 修改时间：14:41:56" itemprop="dateCreated datePublished" datetime="2018-07-02T13:45:53+08:00">2018-07-02</time>
+              <time title="创建时间：2018-07-02 13:45:53 / 修改时间：17:12:25" itemprop="dateCreated datePublished" datetime="2018-07-02T13:45:53+08:00">2018-07-02</time>
             
 
             
@@ -418,6 +418,7 @@
 <p>英文描述：Cannot contact xxx. There is more than one contact with the same phone number.Try calling again.If you still cannot complete the call,contact your support team with this information.</p>
 </blockquote>
 <img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/2-有多个联系人具有相同电话号码-英文.JPG">
+<a id="more"></a>
 <p>查询后发现没有重复用户或其它用途占用此号码，进一步分析，做用户升级项目，迁移用户前此用户电话号码正常，迁移后不正常；再进一步了解，此号码曾经分配给其它人，但是那个用户已经离职，才把此电话号码分配给此用户使用，迁移前一段时间都使用正常。</p>
 <p>那问题就出现迁移上，是不是迁移数据没有同步造成数据库中存在两条同样电话号码的数据，导致呼叫断开呢？</p>
 <p>以下是解决过程：</p>
