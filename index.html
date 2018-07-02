@@ -301,6 +301,332 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/Skype-for-Business手机APP不能推送消息通知/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yssky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="强生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/" itemprop="url">
+                  Skype for Business手机APP不能推送消息通知
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 11:01:05 / 修改时间：11:07:55" itemprop="dateCreated datePublished" datetime="2018-07-02T11:01:05+08:00">2018-07-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Skype-for-Business/" itemprop="url" rel="index"><span itemprop="name">Skype for Business</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在实施本地Skype for Business Server 2015与21v Office 365混合部署，项目实施完成后，用户反馈手机端Skype for Business没有消息推送通知。</p>
+<p>在iPhone手机上测试，也没有消息推送通知。在微软工程师协助下，最终诊断结论是：</p>
+<p>Skype for Business基于云推送服务MPNS只有国际版，国内世纪互联版不提供。需要再添加一条国际版的联机宿主提供程序。</p>
+<p>配置参考链接：<a href="https://technet.microsoft.com/zh-cn/library/hh690047(v=ocs.15).aspx" target="_blank" rel="noopener">https://technet.microsoft.com/zh-cn/library/hh690047(v=ocs.15).aspx</a></p>
+<p>排查步骤及解决方法：</p>
+<p>1.使用命令Test-CsMcxPushNotification测试推送服务，失败<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/1-sfb推送通知测试失败.jpg"><br>2.查看联机宿主提供程序，是国内版<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/2-sfb推送通知配置1.jpg"><br>3.查看推送配置，已启用<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/3-sfb推送通知配置2.jpg"><br>4.查看推送push.lync.com配置，已配置<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/4-sfb推送通知配置3.jpg"><br>5.查看联盟配置，已启用<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/5-sfb推送通知配置联盟.jpg"><br>6.添加国际版推送云服务宿主提供程序<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/6-sfb推送通知配置新增.jpg"><br>7.查看所有宿主提供程序<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/7-sfb推送通知配置全部.jpg"><br>8.测试推送服务，成功<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/8-sfb推送通知测试成功.jpg"><br>总结：国内世纪互联Office365不提供云端的推送通知服务，如果做了与21v的混合部署，需要添加国际版云推送服务</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/02/SfBServer安装组件rewrite-2-0-rtw-x64-msi失败/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yssky">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="强生的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/02/SfBServer安装组件rewrite-2-0-rtw-x64-msi失败/" itemprop="url">
+                  Windows Server 2016部署Skype for Business Server安装组件rewrite_2.0_rtw_x64.msi失败
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 10:58:50 / 修改时间：11:00:38" itemprop="dateCreated datePublished" datetime="2018-07-02T10:58:50+08:00">2018-07-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Skype-for-Business/" itemprop="url" rel="index"><span itemprop="name">Skype for Business</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Windows Server 2016部署Skype for Business Server安装组件rewrite_2.0_rtw_x64.msi失败，提示版本IIS不一致，可以通过注册表把IIS版本从10调整为7，即可顺利部署。</p>
+<p>参考文章进行修改：<a href="https://www.eshlomo.us/rewritemodule-error-with-skype-for-business-on-windows-server-2016/" target="_blank" rel="noopener">https://www.eshlomo.us/rewritemodule-error-with-skype-for-business-on-windows-server-2016/</a></p>
+<p><a href="http://pdhewaju.com.np/2017/02/02/solvedprerequisite-installation-failed-rewritemodule/" target="_blank" rel="noopener">http://pdhewaju.com.np/2017/02/02/solvedprerequisite-installation-failed-rewritemodule/</a></p>
+<p>当然，也可以使用最新补丁里的rewrite_2.0_rtw_x64.msi 覆盖部署向导调用的准备条件组件。</p>
+<p>部署向导调用组件路径：C:\ProgramData\Microsoft\Skype for Business Server\Deployment\cache\6.0.9319.0</p>
+<p>新补丁的路径：C:\ProgramData\Microsoft\Skype for Business Server\Deployment\patchcache\6.0.9319.0</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/30/OfficeWebAppsServer准备条件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1282,7 +1608,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
