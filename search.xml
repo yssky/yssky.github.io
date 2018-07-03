@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>System Center Virtual Machine Manager 2016评估版已过期无法打开控制台</title>
+      <link href="/2018/07/02/System-Center-Virtual-Machine-Manager-2016%E8%AF%84%E4%BC%B0%E7%89%88%E5%B7%B2%E8%BF%87%E6%9C%9F%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0/"/>
+      <url>/2018/07/02/System-Center-Virtual-Machine-Manager-2016%E8%AF%84%E4%BC%B0%E7%89%88%E5%B7%B2%E8%BF%87%E6%9C%9F%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%8E%A7%E5%88%B6%E5%8F%B0/</url>
+      <content type="html"><![CDATA[<p>System Center Virtual Machine Manager 2016评估版已过期无法打开控制台，如何输入正式版Key激活评估版？</p><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/1-SCVMM2016评估版已过期.PNG"><a id="more"></a><p>网上方法如下，到底能不能激活为正式版呢？</p><p>以管理员身份打开Virtual Machine Manager Command Shell，输入以下命令注册SCVMM为正式版。</p><p><code>Register-SCVMMAccessLicense -ProductKey “XXXXX-XXXXX-XXXXX-XXXXX-XXXXX” -AcceptEULA</code></p><p>使用VMM Powershell输入如上命令报错如下：</p><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/2-SCVMM2016评估版已过期无法使用powershell激活Key.PNG"><p>此方法无效，因为评估版过期，造成Powershell组件也无法连接VMM管理服务器，也无法使用此条命令激活为正式版。</p><p>此条命令是在评估版还没到期时，可以激话为正式版。</p><p>正确的解决方法是：卸载SCVMM，保留数据，再重新安装SCVMM。以下是操作方法截图，请按照顺序操作！</p><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/3-SCVMM2016卸载重新安装1.PNG"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/4-SCVMM2016卸载重新安装2.PNG"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/5-SCVMM2016卸载重新安装3-保留数值.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/6-SCVMM2016卸载重新安装4-卸载确认.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/7-SCVMM2016卸载重新安装5-卸载完成.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/8-SCVMM2016重新安装1.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/9-SCVMM2016重新安装2-输入产品密钥.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/10-SCVMM2016重新安装2-选择数据库.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/11-SCVMM2016重新安装2-服务帐户.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/12-SCVMM2016重新安装2-端口默认.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/13-SCVMM2016重新安装6-库共享.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/14-SCVMM2016重新安装7-摘要.png"><img src="/2018/07/02/System-Center-Virtual-Machine-Manager-2016评估版已过期无法打开控制台/15-SCVMM2016重新安装7-完成.png">]]></content>
+      
+      <categories>
+          
+          <category> System Center </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> System Center </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business Server 部署SQL always on 已知问题</title>
+      <link href="/2018/07/02/Skype-for-Business-Server-%E9%83%A8%E7%BD%B2SQL-always-on-%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98/"/>
+      <url>/2018/07/02/Skype-for-Business-Server-%E9%83%A8%E7%BD%B2SQL-always-on-%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98/</url>
+      <content type="html"><![CDATA[<p>Skype for Business Server 2015后端SQL数据库部署Always On后，SQL数据库可用性组和可用性数据库已经准备就绪。但是当故障转移至辅助副本时，问题就出现了，前端频繁报错：无法连接至后端数据库，用户Skype for Business客户端报“受限的连接”，无法获取联系人列表。</p><a id="more"></a><p>解决方法，微软宣讲的Lync升级Skype for Business PPT中有讲到此已知问题，如下图</p><p>具体的解决步骤：</p><p>1.打开群集管理器手动故障转移，切换至副本节点；或打开SQL控制台，故障转移至辅助副本；</p><p>2.以管理员身份打开Skype for Business Server 命令行管理程序，运行如下命令更新辅助副本登录用户信息</p><p>其中xxxsql.xx.cn填写SQL Always On侦听器地址</p><p><code>Install-CsDatabase -Update -ConfiguredDatabases -SqlServerFqdn xxxsql.xx.cn -Verbose</code></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business Server频繁报错LS Data MCU 事件ID:41026</title>
+      <link href="/2018/07/02/Skype-for-Business-Server%E9%A2%91%E7%B9%81%E6%8A%A5%E9%94%99LS-Data-MCU-%E4%BA%8B%E4%BB%B6ID-41026/"/>
+      <url>/2018/07/02/Skype-for-Business-Server%E9%A2%91%E7%B9%81%E6%8A%A5%E9%94%99LS-Data-MCU-%E4%BA%8B%E4%BB%B6ID-41026/</url>
+      <content type="html"><![CDATA[<p>Skype for Business Server 2015部署前习惯把Windows Server操作系统补丁打到最新，最近在部署完毕后，Lync Server 事件中频繁报错事件ID：41026（LS Data MCU）和正常的状态信息41205，具体报错信息如下图：</p><a id="more"></a><p>此故障是已知问题，因为安装.NET Framework 4.5.2 或最新版本中会在增强型密钥使用（EKU）上向证书添加额外的检查，由于颁发证书的模板中没有添加客户端验证造成的。</p><p>具体的解决方法有两种，详见如下链接：</p><p><a href="https://support.microsoft.com/en-us/help/4023993/ls-data-mcu-events-41025-and-41026-are-constantly-generated-after-you-" target="_blank" rel="noopener">https://support.microsoft.com/en-us/help/4023993/ls-data-mcu-events-41025-and-41026-are-constantly-generated-after-you-</a></p><p><a href="https://blogs.technet.microsoft.com/uclobby/2017/05/24/lyncsfb-server-event-41026-ls-data-mcu-after-may-2017-net-framework-update/" target="_blank" rel="noopener">https://blogs.technet.microsoft.com/uclobby/2017/05/24/lyncsfb-server-event-41026-ls-data-mcu-after-may-2017-net-framework-update/</a></p><p>此次我使用第二种方法，关闭EKU证书检查，在注册中添加键值关闭EKU检查。</p><p>具体解决步骤如下</p><p>1.导航到如下图注册表位置，如果不存在项：System.Net.ServicePointManager.RequireCertificateEKUs，需要手动创建，过程如下图</p><img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/3-注册表新建项.PNG"><p>2.下载自动判断Lync/Sfb Server版本Powershell脚本<a href="https://gallery.technet.microsoft.com/LyncSfB-Server-Disable-EKU-dab6cb88，自动创建键值关闭EKU检查，当然也可以手动创建，此次使用脚本的方式（适用于Sfb" target="_blank" rel="noopener">https://gallery.technet.microsoft.com/LyncSfB-Server-Disable-EKU-dab6cb88，自动创建键值关闭EKU检查，当然也可以手动创建，此次使用脚本的方式（适用于Sfb</a> Server安装位置为默认位置），以管理员命令打开，过程如下图</p><img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/5-使用Powershell判断版本新建注册表值.PNG"><img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/6-使用Powershell判断EKUs.PNG"><p>3.核实注册表键值是否创建</p><img src="/2018/07/02/Skype-for-Business-Server频繁报错LS-Data-MCU-事件ID-41026/7-复核新建注册表键值.PNG"><p>4.重新启动Skype for Business Server Web会议服务</p><p>至此，再通过事件查看器，查看已经没有此报错信息，前端与边缘的Web会议正常建立连接。</p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business 频繁报LS 25073 Trunk不支持柔和噪音</title>
+      <link href="/2018/07/02/Skype-for-Business-%E9%A2%91%E7%B9%81%E6%8A%A5LS-25073-Trunk%E4%B8%8D%E6%94%AF%E6%8C%81%E6%9F%94%E5%92%8C%E5%99%AA%E9%9F%B3/"/>
+      <url>/2018/07/02/Skype-for-Business-%E9%A2%91%E7%B9%81%E6%8A%A5LS-25073-Trunk%E4%B8%8D%E6%94%AF%E6%8C%81%E6%9F%94%E5%92%8C%E5%99%AA%E9%9F%B3/</url>
+      <content type="html"><![CDATA[<p>部署Skype for Business Server 2015并启用企业语音，企业内部部署奥科M1000语音网关，一切看起来都工作正常，但SfB前端频繁报事件ID 25073 Trunk不支持柔和噪音。</p><img src="/2018/07/02/Skype-for-Business-频繁报LS-25073-Trunk不支持柔和噪音/1-柔和噪音1.jpg"><a id="more"></a><p>请按照如下频繁配置AudioCode M1000语音网关相关配置，以支持柔和噪音。</p><p>1.AudioCode M1000配置如下项目为Enable</p><p><code>Enable RFC 3389 CN Payload Type :Enable</code></p><p><code>Comfort Noise Generation Negotiation:Enable</code></p><img src="/2018/07/02/Skype-for-Business-频繁报LS-25073-Trunk不支持柔和噪音/2-柔和噪音奥科网关1.jpg"><p>2.配置如下编解码率Silence Suppression :Enable</p><img src="/2018/07/02/Skype-for-Business-频繁报LS-25073-Trunk不支持柔和噪音/3-柔和噪音奥科网关2.jpg"><p>如上配置AudioCode M1000支持柔和噪音，Skype for Business前端服务器不再报柔和噪音错误。</p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>SCVMM2016群集主机状态需要注意</title>
+      <link href="/2018/07/02/SCVMM2016%E7%BE%A4%E9%9B%86%E4%B8%BB%E6%9C%BA%E7%8A%B6%E6%80%81%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F/"/>
+      <url>/2018/07/02/SCVMM2016%E7%BE%A4%E9%9B%86%E4%B8%BB%E6%9C%BA%E7%8A%B6%E6%80%81%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F/</url>
+      <content type="html"><![CDATA[<p>System Center Virtual Machine Manager 2016群集主机状态显示“需要注意”，正常状态是“确定”，原因是更新SCVMM 2016 SP1后没有更新群集主机SCVMM代理导致，解决方法：更新群集主机SCVMM代理 Update-SCVMMManagedComputer。</p><p>1.错误提示</p><img src="/2018/07/02/SCVMM2016群集主机状态需要注意/1-群集主机状态“需要注意”.jpg"><p>2.更新代理</p><img src="/2018/07/02/SCVMM2016群集主机状态需要注意/2-群集主机状态“更新代理”.jpg">]]></content>
+      
+      <categories>
+          
+          <category> System Center </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> System Center </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>SCVMM作业警告50079--未在主机上正确配置群集专门使用的高可用虚拟交换机</title>
+      <link href="/2018/07/02/SCVMM%E4%BD%9C%E4%B8%9A%E8%AD%A6%E5%91%8A50079-%E6%9C%AA%E5%9C%A8%E4%B8%BB%E6%9C%BA%E4%B8%8A%E6%AD%A3%E7%A1%AE%E9%85%8D%E7%BD%AE%E7%BE%A4%E9%9B%86%E4%B8%93%E9%97%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%AB%98%E5%8F%AF%E7%94%A8%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA/"/>
+      <url>/2018/07/02/SCVMM%E4%BD%9C%E4%B8%9A%E8%AD%A6%E5%91%8A50079-%E6%9C%AA%E5%9C%A8%E4%B8%BB%E6%9C%BA%E4%B8%8A%E6%AD%A3%E7%A1%AE%E9%85%8D%E7%BD%AE%E7%BE%A4%E9%9B%86%E4%B8%93%E9%97%A8%E4%BD%BF%E7%94%A8%E7%9A%84%E9%AB%98%E5%8F%AF%E7%94%A8%E8%99%9A%E6%8B%9F%E4%BA%A4%E6%8D%A2%E6%9C%BA/</url>
+      <content type="html"><![CDATA[<p>System Center Virtual Machine Manager 2016作业中出现警告50079，具体报错信息如下图：</p><img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/1-警告50079未配置高可用虚拟交换机.jpg"><a id="more"></a><p>查看群集主机虚拟机交换配置，发现未关联逻辑网络，如下图：</p><img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/2-警告50079未配置高可用虚拟交换机--未关联逻辑网络.jpg"><p>解决方法：在群集主机上右键属性–硬件–网络找到对应的虚拟交换机并关联对应的逻辑网络即可，如下图：</p><img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/3-虚拟机交换机关联逻辑网络.jpg"><p>虚拟交换机关联相对应的逻辑网络后，如下图</p><img src="/2018/07/02/SCVMM作业警告50079-未在主机上正确配置群集专门使用的高可用虚拟交换机/4-虚拟机交换机关联逻辑网络-虚拟交换机.jpg"><p>虚拟交换机关联相对应的逻辑网络后，等待群集刷新，作业中此故障消失。</p>]]></content>
+      
+      <categories>
+          
+          <category> System Center </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> System Center </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>SCVMM内部系统垃圾回收作业错误2601--无法连接到VMM数据库</title>
+      <link href="/2018/07/02/SCVMM%E5%86%85%E9%83%A8%E7%B3%BB%E7%BB%9F%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E4%BD%9C%E4%B8%9A%E9%94%99%E8%AF%AF2601-%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0VMM%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <url>/2018/07/02/SCVMM%E5%86%85%E9%83%A8%E7%B3%BB%E7%BB%9F%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E4%BD%9C%E4%B8%9A%E9%94%99%E8%AF%AF2601-%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E5%88%B0VMM%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+      <content type="html"><![CDATA[<p>System Center Virtual Machine Manager 2016内部系统垃圾回收作业错误2601–无法连接到VMM数据库，请确保SQL Server 正在运行并且配置正确，错误如下图：</p><img src="/2018/07/02/SCVMM内部系统垃圾回收作业错误2601-无法连接到VMM数据库/内部系统垃圾回收错误2601.jpg"><a id="more"></a><p>此故障是微软已知问题并已经发布UR3补丁，此故障是作为垃圾收集器刷新的一部分，不影响SCVMM正常使用。</p><p>Update Rollup 3 for System Center 2016 Virtual Machine Manager<br>链接：<a href="https://support.microsoft.com/en-hk/help/4014528/update-rollup-3-for-system-center-2016-virtual-machine-manager" target="_blank" rel="noopener">https://support.microsoft.com/en-hk/help/4014528/update-rollup-3-for-system-center-2016-virtual-machine-manager</a></p><p>UR3补丁发布修复问题列表有此项说明：</p><p>Internal Garbage Collection Refresher fails with the exception “Unable to connect to database.”</p>]]></content>
+      
+      <categories>
+          
+          <category> System Center </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> System Center </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business电话无法呼出呼入--有多个联系人具有相同电话号码</title>
+      <link href="/2018/07/02/Skype-for-Business%E7%94%B5%E8%AF%9D%E6%97%A0%E6%B3%95%E5%91%BC%E5%87%BA%E5%91%BC%E5%85%A5-%E6%9C%89%E5%A4%9A%E4%B8%AA%E8%81%94%E7%B3%BB%E4%BA%BA%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81/"/>
+      <url>/2018/07/02/Skype-for-Business%E7%94%B5%E8%AF%9D%E6%97%A0%E6%B3%95%E5%91%BC%E5%87%BA%E5%91%BC%E5%85%A5-%E6%9C%89%E5%A4%9A%E4%B8%AA%E8%81%94%E7%B3%BB%E4%BA%BA%E5%85%B7%E6%9C%89%E7%9B%B8%E5%90%8C%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81/</url>
+      <content type="html"><![CDATA[<p>最近做Lync 2010升级Skype for Business 项目中，遇到一则故障，故障现象：某一用户Lync电话无法呼出呼入，呼出直接断开呼叫，呼入也是直接断开呼叫，如果通过Lync客户端呼入提示如下图错误：</p><blockquote><p>中文描述：无法联系 xxx。有多个联系人具有相同电话号码。请重试呼叫。如果仍无法完成呼叫，请与您的支持团队联系以了解此信息。</p></blockquote><img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/1-有多个联系人具有相同电话号码.JPG"><blockquote><p>英文描述：Cannot contact xxx. There is more than one contact with the same phone number.Try calling again.If you still cannot complete the call,contact your support team with this information.</p></blockquote><img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/2-有多个联系人具有相同电话号码-英文.JPG"><a id="more"></a><p>查询后发现没有重复用户或其它用途占用此号码，进一步分析，做用户升级项目，迁移用户前此用户电话号码正常，迁移后不正常；再进一步了解，此号码曾经分配给其它人，但是那个用户已经离职，才把此电话号码分配给此用户使用，迁移前一段时间都使用正常。</p><p>那问题就出现迁移上，是不是迁移数据没有同步造成数据库中存在两条同样电话号码的数据，导致呼叫断开呢？</p><p>以下是解决过程：</p><p>1.使用SQL管理工具连接此用户所在的SfB前端服务器rtclocal数据库实例，通过SQL语句查询，查询有两条相同电话号码的用户：<br><code>SELECT * From [rtc].[dbo].[ResourcePhone] where PhoneNum like ‘%75157%’</code></p><img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/3-rtc-查询-1.jpg"><p>2.通过ResourceID查找对应的用户，语句如下<br><code>SELECT * FROM [rtc].[dbo].[Resource] where ResourceId = ‘3161’</code></p><img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/4-rtc-查询-2.jpg"><p>3.找到非在用用户，使用如下命令删除<br><code>execute dbo.RtcDeleteResource ‘juaxx@xx.cn’</code></p><img src="/2018/07/02/Skype-for-Business电话无法呼出呼入-有多个联系人具有相同电话号码/5-rtc-执行删除.jpg"><p>通过以上方法解决后，要确保所有前端数据都是唯一的，如果不唯一，请按照1、2、3步骤执行并删除非正常用户数据。此时，再查看用户电话已经可以正常打进打出。</p><p>参考文档如下。</p><p><a href="http://lynclead.com/?p=312" target="_blank" rel="noopener">http://lynclead.com/?p=312</a></p><p><a href="http://lynclead.com/?p=324" target="_blank" rel="noopener">http://lynclead.com/?p=324</a></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Azure AD Connect 同步报错：访问特权不够</title>
+      <link href="/2018/07/02/Azure-AD-Connect-%E5%90%8C%E6%AD%A5%E6%8A%A5%E9%94%99%EF%BC%9A%E8%AE%BF%E9%97%AE%E7%89%B9%E6%9D%83%E4%B8%8D%E5%A4%9F/"/>
+      <url>/2018/07/02/Azure-AD-Connect-%E5%90%8C%E6%AD%A5%E6%8A%A5%E9%94%99%EF%BC%9A%E8%AE%BF%E9%97%AE%E7%89%B9%E6%9D%83%E4%B8%8D%E5%A4%9F/</url>
+      <content type="html"><![CDATA[<p>Office 365混合部署，本地安装Azure AD Connect 与Azure AD同步本地用户信息，以便统一标识访问Office 365。</p><p>故障描述：同步工具同步过程中，报错信息如下：permission-issue 访问特权不够，不能执行该操作。<br><img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/AADConnect--访问特权不够-01.jpg"></p><img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/AADConnect--访问特权不够-02.jpg"><a id="more"></a><p>分析过程：查看这些用户，都曾经是Domain Admin用户或其它特权权限，后期回收了权限。</p><p>解决方法：这些用户–启用对Domain Admin的权限继承</p><img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/3-启用继承-01.jpg"><img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/3-启用继承-02.jpg"><img src="/2018/07/02/Azure-AD-Connect-同步报错：访问特权不够/3-启用继承-03.jpg"><p>也可以参考：<a href="http://mstechtalk.com/azure-ad-sync-permissions-error/" target="_blank" rel="noopener">http://mstechtalk.com/azure-ad-sync-permissions-error/</a></p>]]></content>
+      
+      <categories>
+          
+          <category> Azure AD Connect </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Azure AD Connect </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Azure AD Connect同步报错：unexpected error 意外错误</title>
+      <link href="/2018/07/02/Azure-AD-Connect%E5%90%8C%E6%AD%A5%E6%8A%A5%E9%94%99%EF%BC%9Aunexpected-error-%E6%84%8F%E5%A4%96%E9%94%99%E8%AF%AF/"/>
+      <url>/2018/07/02/Azure-AD-Connect%E5%90%8C%E6%AD%A5%E6%8A%A5%E9%94%99%EF%BC%9Aunexpected-error-%E6%84%8F%E5%A4%96%E9%94%99%E8%AF%AF/</url>
+      <content type="html"><![CDATA[<p>故障描述：Azure AD Connect同步过程删除用户报错：unexpected error 意外错误<br><img src="/2018/07/02/Azure-AD-Connect同步报错：unexpected-error-意外错误/AADConnect-未知预期的错误-01.jpg"></p><a id="more"></a><p>分析过程：本地域用户删除后，经过Azure AD Connect同步工具执行同步，Office 365云端用户无法删除，无法删除用户有1000多。</p><p>解决方法：本地域原来是全部同步，后来改成仅同步某些OU，Azure AD防止意外删除有限制（500），造成云端无法删除。</p><p>1.临时执行如下命令关闭防止意外删除限制：<br><code>Disable-ADSyncExportDeletionThreshold</code><br>2.然后再执行同步命令执行同步，云端用户已经删除：<br><code>Start-ADSyncSyncCycle -PolicyType Delta</code><br>3.同步完成后，恢复防止意外删除限制，自行设置数字：<br><code>Enable-ADSyncExportDeletionThreshold</code></p><p>参考：<a href="https://docs.microsoft.com/zh-cn/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes" target="_blank" rel="noopener">https://docs.microsoft.com/zh-cn/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes</a></p>]]></content>
+      
+      <categories>
+          
+          <category> Azure AD Connect </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Azure AD Connect </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>System Center 2016 Virtual Machine Manager热增加虚拟机内存</title>
+      <link href="/2018/07/02/System-Center-2016-Virtual-Machine-Manager%E7%83%AD%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98/"/>
+      <url>/2018/07/02/System-Center-2016-Virtual-Machine-Manager%E7%83%AD%E5%A2%9E%E5%8A%A0%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98/</url>
+      <content type="html"><![CDATA[<p>ystem Center 2016 Virtual Machine Manager热增加虚拟机内存（modify the memory configuration of a running VM that uses static memory），前提条件：Windows Server 2016 Hyper-v和托管的Windows Server 2016虚拟机，通过System Center 2016 Virtual Machine Manager 虚拟机UI管理界面无法热增加内存（注意：可以通过宿主机Hyper-v管理器热增加内存），需要通过Powershell命令，命令如下：<br><code>PS C:\&gt; $VM = Get-SCVirtualMachine -Name “VM01”</code><br><code>PS C:\&gt; Set-SCVirtualMachine -VM $VM -MemoryMB 1024</code></p><p>参考：<a href="https://docs.microsoft.com/en-us/system-center/vmm/vm-settings" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/system-center/vmm/vm-settings</a></p>]]></content>
+      
+      <categories>
+          
+          <category> System Center </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> System Center </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>wsus(Windows Server Update Services)控制台报错:WsusPool应用程序停止</title>
+      <link href="/2018/07/02/wsus-Windows-Server-Update-Services-%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8A%A5%E9%94%99-WsusPool%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%81%9C%E6%AD%A2/"/>
+      <url>/2018/07/02/wsus-Windows-Server-Update-Services-%E6%8E%A7%E5%88%B6%E5%8F%B0%E6%8A%A5%E9%94%99-WsusPool%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%81%9C%E6%AD%A2/</url>
+      <content type="html"><![CDATA[<p>#故障描述：<br>wsus(Windows Server Update Services)控制台经常无法打开，报错提示如下：</p><blockquote><p>WSUS 管理控制台无法通过远程 API 连接到 WSUS 服务器。</p></blockquote><blockquote><p>请确保 Update Services 服务、IIS 和 SQL 正在该服务器上运行。如果该问题仍然存在，请尝试重新启动 IIS、SQL 和 Update Services 服务。<br>System.Net.WebException — 请求因 HTTP 状态 503 失败: Service Unavailable。</p></blockquote><a id="more"></a><p>以及如下报错：</p><blockquote><p>无法访问 WSUS 内容目录。<br>System.Net.WebException: 远程服务器返回错误: (503) 服务器不可用。<br>在 System.Net.HttpWebRequest.GetResponse()<br>在 Microsoft.UpdateServices.Internal.HealthMonitoring.HmtWebServices.CheckContentDirWebAccess(EventLoggingType type, HealthEventLogger logger)</p></blockquote><p>解决方法：<br>1.更新WsusPool应用程序池的“专用内存限制”为合理值，如12G<br>2.关闭WsusPool应用程序池的“快速故障防护”<br>3.重新启用WsusPool应用程序池 iisreset<br>可以使用如下命令快速执行：<br><code>“c:\Windows\System32\inetsrv\appcmd.exe” set apppool /apppool.name:wsuspool /recycling.periodicRestart.privateMemory:”12582912″</code><br><code>“c:\Windows\System32\inetsrv\appcmd.exe” set apppool /apppool.name:wsuspool /failure.rapidFailProtection:”false”</code><br><code>“c:\Windows\System32\inetsrv\appcmd.exe” list apppool “wsuspool” /text:*</code></p>]]></content>
+      
+      <categories>
+          
+          <category> WSUS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WSUS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>部署Skype for Business Server Statistics Manager(统计管理器)</title>
+      <link href="/2018/07/02/%E9%83%A8%E7%BD%B2Skype-for-Business-Server-Statistics-Manager-%E7%BB%9F%E8%AE%A1%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+      <url>/2018/07/02/%E9%83%A8%E7%BD%B2Skype-for-Business-Server-Statistics-Manager-%E7%BB%9F%E8%AE%A1%E7%AE%A1%E7%90%86%E5%99%A8/</url>
+      <content type="html"><![CDATA[<p>Skype for Business Server的统计管理器是一个强大的工具，可让您实时查看Skype for Business Server运行状况和性能数据。您可以每几秒钟轮询几百台服务器的性能数据，并在统计管理器网站上立即查看结果。</p><a id="more"></a><p>1.安装Redis-x64-3.0.501，下载地址：<a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/releases</a><br>2.申请自定义证书<br>3.安装统计管理器侦听器服务 StatsManPerfAgentListener.msi ，下载地址：<a href="https://aka.ms/StatsManDownload" target="_blank" rel="noopener">https://aka.ms/StatsManDownload</a><br>4.安装统计管理器网站 StatsManWebSite.msi<br>5.在Skype for Business前端、边缘、分支等服务器上安装统计管理器代理 StatsManPerfAgent.msi<br>6.导入Skype for Business服务器拓扑<br>导出：<code>Get-CsPool | Export-Clixml -Path mypoolinfo.xml</code><br>在统计管理器服务器上导入：<br><code>cd ‘C:\Program Files\Skype for Business Server StatsMan Listener’</code></p><p><code>.\Update-StatsManServerInfo.ps1 -CsPoolFile &lt;path to mypoolinfo.xml&gt;</code></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server Statistics Manager </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>WSUS管理windows 10质量更新（快速安装文件功能）</title>
+      <link href="/2018/07/02/WSUS%E7%AE%A1%E7%90%86windows-10%E8%B4%A8%E9%87%8F%E6%9B%B4%E6%96%B0%EF%BC%88%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E5%8A%9F%E8%83%BD%EF%BC%89/"/>
+      <url>/2018/07/02/WSUS%E7%AE%A1%E7%90%86windows-10%E8%B4%A8%E9%87%8F%E6%9B%B4%E6%96%B0%EF%BC%88%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%87%E4%BB%B6%E5%8A%9F%E8%83%BD%EF%BC%89/</url>
+      <content type="html"><![CDATA[<p>由于 Windows 10 的缘故，质量更新比传统的 Windows 更新要大，因为质量更新是累积更新。 为了管理客户端下载类似这些大型更新需要的带宽，WSUS 拥有名为 Express Installation（快速安装文件） 文件的功能。</p><p>配置 WSUS 以下载 快速安装文件</p><p>打开 WSUS 管理控制台。<br>在导航窗格中，依次转到你的服务器\选项。<br>在选项部分中，单击更新文件和语言。<br>在更新文件和语言对话框中，选择下载快速安装文件<br><img src="/2018/07/02/WSUS管理windows-10质量更新（快速安装文件功能）/wsus配置快速安装文件.png"></p>]]></content>
+      
+      <categories>
+          
+          <category> WSUS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> WSUS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business联系人和组备份与恢复命令</title>
+      <link href="/2018/07/02/Skype-for-Business%E8%81%94%E7%B3%BB%E4%BA%BA%E5%92%8C%E7%BB%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E5%91%BD%E4%BB%A4/"/>
+      <url>/2018/07/02/Skype-for-Business%E8%81%94%E7%B3%BB%E4%BA%BA%E5%92%8C%E7%BB%84%E5%A4%87%E4%BB%BD%E4%B8%8E%E6%81%A2%E5%A4%8D%E5%91%BD%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<p>Skype for Business联系人和组备份与恢复命令：</p><p>1.导出备份：Export-CsUserData<br>例如导出某一个用户联系人和组：<br><code>Export-CsUserData -PoolFqdn pool01.yangqs.com -UserFilter zhangsan@yangqs.com -FileName c:\zhangsan.zip</code></p><p>2.导入覆盖恢复：Import-CsUserData<br>例如导入某一个用户联系人和组并覆盖原有的：<br><code>Import-CsUserData -FileName “c:\zhangsan.zip” -PoolFqdn pool01.yangqs.com -UserFilter zhangsan@yangqs.com -v</code></p><p>3.导入更新恢复：Update-CsUserData<br>例如导入某一个用户联系人和组并更新原有的：<br><code>Update-CsUserData -Filename “c:\zhangsan.zip” -UserFilter zhangsan@yangqs.com</code></p><p>参考：<a href="https://docs.microsoft.com/en-us/powershell/module/skype/import-csuserdata?view=skype-ps" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/powershell/module/skype/import-csuserdata?view=skype-ps</a></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business外呼呼叫记录查询SQL语句</title>
+      <link href="/2018/07/02/Skype-for-Business%E5%A4%96%E5%91%BC%E5%91%BC%E5%8F%AB%E8%AE%B0%E5%BD%95%E6%9F%A5%E8%AF%A2SQL%E8%AF%AD%E5%8F%A5/"/>
+      <url>/2018/07/02/Skype-for-Business%E5%A4%96%E5%91%BC%E5%91%BC%E5%8F%AB%E8%AE%B0%E5%BD%95%E6%9F%A5%E8%AF%A2SQL%E8%AF%AD%E5%8F%A5/</url>
+      <content type="html"><![CDATA[<p>Skype for Business外呼呼叫记录查询调用存档数据库LcsCDR视图表VoipDetailsView，此表数据时间基于格林尼治时间，需要在此基础上加8小时东八区(UTC/GMT+08:00)。删除一些不常使用的字段，外呼呼叫记录查询SQL语句如下。</p><p><code>SELECT DATEADD(hour,8, [SessionIdTime]) as [SessionIdTime],DATEADD(hour,8, [InviteTime]) as [InviteTime],[FromUri],[ToUri],[FromUriType],[ToUriType],DATEADD(hour,8, [EndTime]) as [EndTime],[FromClientVersion],[FromClientType],[FromClientCategory],[ToClientVersion],[ToClientType],[ToClientCategory],[TargetUri],[TargetUriType],DATEADD(hour,8, [ResponseTime]) as [ResponseTime],[ResponseCode],[DiagnosticId],[FrontEnd],[Pool],[FromEdgeServer],[ToEdgeServer],[IsFromInternal],[IsToInternal],DATEADD(hour,8, [LastModifiedTime]) as [LastModifiedTime],[FromPhone],[ToPhone],[DisconnectedByUri],[DisconnectedByUriType],[DisconnectedByPhone],[FromMediationServer],[ToMediationServer],[FromGateway],[ToGateway]FROM [LcsCDR].[dbo].[VoipDetailsView] where FromUri = ‘qiangshengyang@yangqs.com’ and ResponseCode = 200order by SessionIdTime desc</code></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business手机APP不能推送消息通知</title>
+      <link href="/2018/07/02/Skype-for-Business%E6%89%8B%E6%9C%BAAPP%E4%B8%8D%E8%83%BD%E6%8E%A8%E9%80%81%E6%B6%88%E6%81%AF%E9%80%9A%E7%9F%A5/"/>
+      <url>/2018/07/02/Skype-for-Business%E6%89%8B%E6%9C%BAAPP%E4%B8%8D%E8%83%BD%E6%8E%A8%E9%80%81%E6%B6%88%E6%81%AF%E9%80%9A%E7%9F%A5/</url>
+      <content type="html"><![CDATA[<p>最近在实施本地Skype for Business Server 2015与21v Office 365混合部署，项目实施完成后，用户反馈手机端Skype for Business没有消息推送通知。</p><a id="more"></a><p>在iPhone手机上测试，也没有消息推送通知。在微软工程师协助下，最终诊断结论是：</p><p>Skype for Business基于云推送服务MPNS只有国际版，国内世纪互联版不提供。需要再添加一条国际版的联机宿主提供程序。</p><p>配置参考链接：<a href="https://technet.microsoft.com/zh-cn/library/hh690047(v=ocs.15).aspx" target="_blank" rel="noopener">https://technet.microsoft.com/zh-cn/library/hh690047(v=ocs.15).aspx</a></p><p>排查步骤及解决方法：</p><p>1.使用命令Test-CsMcxPushNotification测试推送服务，失败<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/1-sfb推送通知测试失败.jpg"><br>2.查看联机宿主提供程序，是国内版<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/2-sfb推送通知配置1.jpg"><br>3.查看推送配置，已启用<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/3-sfb推送通知配置2.jpg"><br>4.查看推送push.lync.com配置，已配置<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/4-sfb推送通知配置3.jpg"><br>5.查看联盟配置，已启用<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/5-sfb推送通知配置联盟.jpg"><br>6.添加国际版推送云服务宿主提供程序<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/6-sfb推送通知配置新增.jpg"><br>7.查看所有宿主提供程序<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/7-sfb推送通知配置全部.jpg"><br>8.测试推送服务，成功<br><img src="/2018/07/02/Skype-for-Business手机APP不能推送消息通知/8-sfb推送通知测试成功.jpg"><br>总结：国内世纪互联Office365不提供云端的推送通知服务，如果做了与21v的混合部署，需要添加国际版云推送服务</p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Windows Server 2016部署Skype for Business Server安装组件rewrite_2.0_rtw_x64.msi失败</title>
+      <link href="/2018/07/02/SfBServer%E5%AE%89%E8%A3%85%E7%BB%84%E4%BB%B6rewrite-2-0-rtw-x64-msi%E5%A4%B1%E8%B4%A5/"/>
+      <url>/2018/07/02/SfBServer%E5%AE%89%E8%A3%85%E7%BB%84%E4%BB%B6rewrite-2-0-rtw-x64-msi%E5%A4%B1%E8%B4%A5/</url>
+      <content type="html"><![CDATA[<p>Windows Server 2016部署Skype for Business Server安装组件rewrite_2.0_rtw_x64.msi失败，提示版本IIS不一致，可以通过注册表把IIS版本从10调整为7，即可顺利部署。</p><a id="more"></a><p>参考文章进行修改：<a href="https://www.eshlomo.us/rewritemodule-error-with-skype-for-business-on-windows-server-2016/" target="_blank" rel="noopener">https://www.eshlomo.us/rewritemodule-error-with-skype-for-business-on-windows-server-2016/</a></p><p><a href="http://pdhewaju.com.np/2017/02/02/solvedprerequisite-installation-failed-rewritemodule/" target="_blank" rel="noopener">http://pdhewaju.com.np/2017/02/02/solvedprerequisite-installation-failed-rewritemodule/</a></p><p>当然，也可以使用最新补丁里的rewrite_2.0_rtw_x64.msi 覆盖部署向导调用的准备条件组件。</p><p>部署向导调用组件路径：C:\ProgramData\Microsoft\Skype for Business Server\Deployment\cache\6.0.9319.0</p><p>新补丁的路径：C:\ProgramData\Microsoft\Skype for Business Server\Deployment\patchcache\6.0.9319.0</p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Office Web Apps Server 部署准备条件</title>
+      <link href="/2018/06/30/OfficeWebAppsServer%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/"/>
+      <url>/2018/06/30/OfficeWebAppsServer%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>此Powershell适用于Windows Server 2012 R2，由于Windows Server 2016取消了对“墨迹与手写服务InkandHandwritingServices”的支持，不再支持部署Office Web Apps Server。</p><p><code>Add-WindowsFeature Web-Server,Web-Mgmt-Tools,Web-Mgmt-Console,Web-WebServer,Web-Common-Http,Web-Default-Doc,Web-Static-Content,Web-Performance,Web-Stat-Compression,Web-Dyn-Compression,Web-Security,Web-Filtering,Web-Windows-Auth,Web-App-Dev,Web-Net-Ext45,Web-Asp-Net45,Web-ISAPI-Ext,Web-ISAPI-Filter,Web-Includes, InkandHandwritingServices,NET-Framework-Features,NET-Framework-Core,NET-HTTP-Activation,NET-Non-HTTP-Activ,NET-WCF-HTTP-Activation45</code></p>]]></content>
+      
+      <categories>
+          
+          <category> Office Web Apps Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+            <tag> Prerequisite </tag>
+            
+            <tag> Office Web Apps Server </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business Server SBS部署准备条件</title>
+      <link href="/2018/06/30/SfBSBSServer2015%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/"/>
+      <url>/2018/06/30/SfBSBSServer2015%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>此Powershell适用于Windows Server 2012 R2/Windows Server 2016.</p><p><code>Add-WindowsFeature NET-WCF-HTTP-Activation45, Web-Asp-Net45,Windows-Identity-Foundation, Net-Framework-Core -source d:\sources\sxs</code></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+            <tag> Prerequisite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business Edge Server边缘服务器部署准备条件</title>
+      <link href="/2018/06/30/SfBEdgeServer2015%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/"/>
+      <url>/2018/06/30/SfBEdgeServer2015%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>此Powershell适用于Windows Server 2012 R2/Windows Server 2016.</p><p>安装基本操作系统并打上最新补丁后，以管理员身份运行Windows Powershell运行如下命令，重启后就可以开始安装Skype for Business Edge Server 2015。</p><p><code>Add-WindowsFeature RSAT-ADDS,NET-Framework-Core,NET-Framework-45-Core,NET-Framework-45-ASPNET,Web-Net-Ext45,NET-WCF-HTTP-Activation45,Windows-Identity-Foundation,Telnet-Client</code></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+            <tag> Prerequisite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Skype for Business Server 2015 前端服务器部署准备条件</title>
+      <link href="/2018/06/30/SfBServer2015%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/"/>
+      <url>/2018/06/30/SfBServer2015%E5%87%86%E5%A4%87%E6%9D%A1%E4%BB%B6/</url>
+      <content type="html"><![CDATA[<p>此Powershell适用于Windows Server 2012 R2/Windows Server 2016.</p><p>安装基本操作系统并打上最新补丁后，以管理员身份运行Windows Powershell运行如下命令，重启后就可以开始安装Skype for Business Server 2015。注意修改源地址，此例是D:\sources\sxs</p><p><code>Add-WindowsFeature RSAT-ADDS, Web-Server, Web-Static-Content, Web-Default-Doc, Web-Http-Errors, Web-Asp-Net, Web-Net-Ext, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Http-Logging, Web-Log-Libraries, Web-Request-Monitor, Web-Http-Tracing, Web-Basic-Auth, Web-Windows-Auth, Web-Client-Auth, Web-Filtering, Web-Stat-Compression, Web-Dyn-Compression, NET-WCF-HTTP-Activation45, Web-Asp-Net45, Web-Mgmt-Tools, Web-Scripting-Tools, Web-Mgmt-Compat, Windows-Identity-Foundation, Telnet-Client, BITS -Source D:\sources\sxs</code></p>]]></content>
+      
+      <categories>
+          
+          <category> Skype for Business Server </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Skype for Business Server </tag>
+            
+            <tag> Prerequisite </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>测试带图片的博客</title>
+      <link href="/2018/06/29/%E6%B5%8B%E8%AF%95%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+      <url>/2018/06/29/%E6%B5%8B%E8%AF%95%E5%B8%A6%E5%9B%BE%E7%89%87%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
+      <content type="html"><![CDATA[<p>我现在写了一个段落，并且想在这个段落的某一个地方<img src="/2018/06/29/测试带图片的博客/这是一个新的博客的图片.jpg" title="这是一个新的博客的图片的说明">引入一张图片</p>]]></content>
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 图片 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>你好,Hexo</title>
+      <link href="/2018/06/29/%E4%BD%A0%E5%A5%BD-Hexo/"/>
+      <url>/2018/06/29/%E4%BD%A0%E5%A5%BD-Hexo/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> github </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+</search>
